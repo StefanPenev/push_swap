@@ -1,11 +1,23 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   utils.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: spenev <spenev@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/06/27 11:39:11 by spenev            #+#    #+#             */
+/*   Updated: 2024/06/27 11:39:45 by spenev           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
-int     ft_isspace(int c)
- {
-     return ((c >= 9 && c <= 13) || c == ' ');
- }
+int	ft_isspace(int c)
+{
+	return ((c >= 9 && c <= 13) || c == ' ');
+}
 
-void	ft_error()
+void	ft_error(void)
 {
 	ft_putstr_fd("Error\n", 1);
 	exit(EXIT_FAILURE);

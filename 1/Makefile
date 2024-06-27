@@ -1,8 +1,8 @@
 NAME = push_swap
-CC = gcc
+CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
-SRCS = push_swap.c utils.c main.c validations.c sort_sort.c
+SRCS = push_swap.c utils.c main.c validations.c sort.c
 OBJS = $(SRCS:.c=.o)
 
 LIBFT_DIR = Libft
