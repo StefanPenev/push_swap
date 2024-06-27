@@ -6,7 +6,7 @@
 /*   By: stefan <stefan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/27 11:54:37 by spenev            #+#    #+#             */
-/*   Updated: 2024/06/27 22:50:28 by stefan           ###   ########.fr       */
+/*   Updated: 2024/06/27 23:08:24 by stefan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,16 +42,14 @@ int	insert(t_hash_set *set, int key)
 	while (current != NULL)
 	{
 		if (current->key == key)
-		{
 			return (0);
-		}
 		current = current->next;
 	}
 	new_node = (t_node *)malloc(sizeof(t_node *));
 	new_node->key = key;
 	new_node->next = set->table[index];
 	set->table[index] = new_node;
-
+	free(new_node);
 	return (1);
 }
 
@@ -81,22 +79,28 @@ int	validate_arguments(int argc, char *argv[])
 	t_node		*temp;
 
 	if (argc <= 1)
-	{
-		printf("Error\n");
-		exit(EXIT_FAILURE);
-	}
+		ft_error();
 	size = argc - 1;
 	init_hash_set(&set, size);
 	i = 1;
 	while (i < argc)
 	{
 		if (!is_number(argv[i]))
+		{
+			free(set.table);
 			ft_error();
+		}
 		num = atol(argv[i]);
 		if (num < -2147483648 || num > 2147483647)
+		{
+			free(set.table);
 			ft_error();
+		}
 		if (!insert(&set, num))
+		{
+			free(set.table);
 			ft_error();
+		}
 		i++;
 	}
 	i = 0;
