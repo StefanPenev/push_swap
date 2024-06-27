@@ -30,23 +30,22 @@ void	ft_lstadd_backk(a_list **lst, a_list *new)
 	}
 }
 
-void init_stack(a_list **stack_a, int argc, char *argv[])
+void	init_stack(a_list **stack_a, int argc, char *argv[])
 {
-    int i;
-    int num;
+	int	i;
+	int	num;
 
-    if (argc == 2)
-    {
-        
-    }
-    
-    i = 1;
-    while (argv[i])
-    {
-        num = ft_atoi(argv[i]);
-        ft_lstadd_backk(stack_a, ft_lst_new(num));
-        i++;
-    }
+	if (argc == 2)
+	{
+
+	}
+	i = 1;
+	while (argv[i])
+	{
+		num = ft_atoi(argv[i]);
+		ft_lstadd_backk(stack_a, ft_lst_new(num));
+		i++;
+	}
 }
 
 void	ft_lstadd_frontt(a_list **lst, a_list *new)
@@ -100,10 +99,10 @@ int	ft_lstsizee(a_list *lst)
 void push_swap(int argc, char *argv[])
 {
 	a_list *stack_a;
-	a_list *stack_b;
+	//a_list *stack_b;
 
     stack_a = NULL;
-    stack_b = NULL;
+    //stack_b = NULL;
     validate_arguments(argc, argv);
     init_stack(&stack_a, argc, argv);
     if (argc == 4)

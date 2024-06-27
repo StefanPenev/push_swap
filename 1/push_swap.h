@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: spenev <spenev@student.42.fr>              +#+  +:+       +#+        */
+/*   By: stefan <stefan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/27 11:59:05 by spenev            #+#    #+#             */
-/*   Updated: 2024/06/27 12:10:24 by spenev           ###   ########.fr       */
+/*   Updated: 2024/06/27 22:14:11 by stefan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,13 +28,13 @@ typedef struct v_list
 typedef struct s_node
 {
 	int				key;
-	struct Node		*next;
+	struct s_node	*next;
 }					t_node;
 
 typedef struct s_hash_set
 {
 	int				size;
-	struct Node		**table;
+	struct s_node	**table;
 }					t_hash_set;
 
 
@@ -50,6 +50,9 @@ void	ft_error(void);
 void	push_swap(int argc, char *argv[]);
 int		is_stack_sorted(a_list *stack);
 void	mini_sort(a_list **stack);
+int	ft_lstsizee(a_list *lst);
+int	get_max_value_index(a_list *lst);
+void	ft_lstadd_frontt(a_list **lst, a_list *new);
 //void sort_stack(a_list **stack_a, a_list **stack_b);
 //void quick_sort(a_list **a, a_list **b);
 //void merge_sort(a_list **a, a_list **b);

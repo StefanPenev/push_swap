@@ -3,22 +3,26 @@
 /*                                                        :::      ::::::::   */
 /*   validations.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: spenev <spenev@student.42.fr>              +#+  +:+       +#+        */
+/*   By: stefan <stefan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/27 11:54:37 by spenev            #+#    #+#             */
-/*   Updated: 2024/06/27 12:25:26 by spenev           ###   ########.fr       */
+/*   Updated: 2024/06/27 22:50:28 by stefan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	initHashSet(t_hash_set *set, int size)
+void	init_hash_set(t_hash_set *set, int size)
 {
+	int	i;
+
 	set->size = size;
-	set->table = (struct Node**)malloc(size * sizeof(struct Node*));
-	for (int i = 0; i < size; ++i)
+	set->table = (t_node **)malloc(size * sizeof(t_node *));
+	i = 0;
+	while (i < size)
 	{
 		set->table[i] = NULL;
+		i++;
 	}
 }
 
@@ -31,6 +35,7 @@ int	insert(t_hash_set *set, int key)
 {
 	int		index;
 	t_node	*current;
+	t_node	*new_node;
 
 	index = hash(key, set->size);
 	current = set->table[index];
@@ -42,10 +47,10 @@ int	insert(t_hash_set *set, int key)
 		}
 		current = current->next;
 	}
-	t_node	newNode = (struct Node*)malloc(sizeof(struct Node));
-    newNode->key = key;
-    newNode->next = set->table[index];
-    set->table[index] = newNode;
+	new_node = (t_node *)malloc(sizeof(t_node *));
+	new_node->key = key;
+	new_node->next = set->table[index];
+	set->table[index] = new_node;
 
 	return (1);
 }
@@ -68,38 +73,44 @@ int	is_number(const char *str)
 
 int	validate_arguments(int argc, char *argv[])
 {
+	t_hash_set	set;
+	int			size;
+	int			i;
+	long		num;
+	t_node		*current;
+	t_node		*temp;
+
 	if (argc <= 1)
 	{
 		printf("Error\n");
 		exit(EXIT_FAILURE);
 	}
-	int size = argc - 1;
-	struct HashSet set;
-	initHashSet(&set, size);
-
-    for (int i = 1; i < argc; ++i) {
-        
-        if (!is_number(argv[i])) {
-            ft_error();
-        }
-
-        long num = atol(argv[i]);
-        if (num < -2147483648 || num > 2147483647)
-            printf("Error: int value.\n");
-        if (!insert(&set, num)) {
-            printf("Error\n");
-            return EXIT_FAILURE;
-        }
-    }
-    for (int i = 0; i < set.size; ++i) {
-        struct Node* current = set.table[i];
-        while (current != NULL) {
-            struct Node* temp = current;
-            current = current->next;
-            free(temp);
-        }
-    }
-    free(set.table);
-
-    return (EXIT_SUCCESS);
+	size = argc - 1;
+	init_hash_set(&set, size);
+	i = 1;
+	while (i < argc)
+	{
+		if (!is_number(argv[i]))
+			ft_error();
+		num = atol(argv[i]);
+		if (num < -2147483648 || num > 2147483647)
+			ft_error();
+		if (!insert(&set, num))
+			ft_error();
+		i++;
+	}
+	i = 0;
+	while (i < set.size)
+	{
+		current = set.table[i];
+		while (current != NULL)
+		{
+			temp = current;
+			current = current->next;
+			free(temp);
+		}
+		i++;
+	}
+	free(set.table);
+	return (EXIT_SUCCESS);
 }
