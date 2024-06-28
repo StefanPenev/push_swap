@@ -6,7 +6,7 @@
 /*   By: stefan <stefan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/27 11:59:05 by spenev            #+#    #+#             */
-/*   Updated: 2024/06/27 22:14:11 by stefan           ###   ########.fr       */
+/*   Updated: 2024/06/28 00:28:56 by stefan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,9 @@
 # include <stdlib.h>
 # include <string.h>
 # include <ctype.h>
+
+# define INT_MAX 2147483647
+# define INT_MIN -2147483648
 
 typedef struct v_list
 {
@@ -44,9 +47,11 @@ void	rotate_stack(a_list **stack, char stk_name);
 void	reverse_rotate_stack(a_list **stack, char stk_name);
 void	push(a_list **to, a_list **from, char stk_name);
 
+void free_hash_set(t_hash_set *set);
+int	is_number(const char *str);
 int		validate_arguments(int argc, char *argv[]);
 long	ft_atol(const char *str);
-void	ft_error(void);
+void	ft_error(t_hash_set	set);
 void	push_swap(int argc, char *argv[]);
 int		is_stack_sorted(a_list *stack);
 void	mini_sort(a_list **stack);

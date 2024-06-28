@@ -98,18 +98,18 @@ int	ft_lstsizee(a_list *lst)
 
 void push_swap(int argc, char *argv[])
 {
-	a_list *stack_a;
+	//a_list *stack_a;
 	//a_list *stack_b;
 
-    stack_a = NULL;
+    //stack_a = NULL;
     //stack_b = NULL;
     validate_arguments(argc, argv);
-    init_stack(&stack_a, argc, argv);
-    if (argc == 4)
-    {
-        mini_sort(&stack_a);
-        exit(EXIT_SUCCESS);
-    }
+    //init_stack(&stack_a, argc, argv);
+    // if (argc == 4)
+    // {
+    //     mini_sort(&stack_a);
+    //     exit(EXIT_SUCCESS);
+    // }
     // if (is_stack_sorted(stack_a))
     //     exit(EXIT_SUCCESS);
 }
