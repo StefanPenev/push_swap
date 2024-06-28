@@ -6,7 +6,7 @@
 /*   By: stefan <stefan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/27 11:59:05 by spenev            #+#    #+#             */
-/*   Updated: 2024/06/28 00:28:56 by stefan           ###   ########.fr       */
+/*   Updated: 2024/06/29 00:36:48 by stefan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,9 @@ void	swap_stack(a_list **stack, char stk_name);
 void	rotate_stack(a_list **stack, char stk_name);
 void	reverse_rotate_stack(a_list **stack, char stk_name);
 void	push(a_list **to, a_list **from, char stk_name);
+void	swap_both(a_list **a_stk, a_list **b_stk);
+void	rotate_both(a_list **a_stk, a_list **b_stk);
+void	reverse_rotate_both(a_list **a_stk, a_list **b_stk);
 
 void free_hash_set(t_hash_set *set);
 int	is_number(const char *str);
