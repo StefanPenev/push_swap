@@ -1,9 +1,10 @@
 NAME = push_swap
-CC = cc
+CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 
-SRCS = push_swap.c utils.c main.c validations.c sort.c operations_single.c \
-	   operations_multi.c
+SRCS = push_swap.c main.c validations.c sort.c operations_single.c \
+	   operations_multi.c utils/sort_utils.c utils/stack_utils.c utils/args_utils.c \
+	   utils/ft_error.c find.c modes.c
 
 OBJS = $(SRCS:.c=.o)
 

@@ -1,21 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   operations.c                                       :+:      :+:    :+:   */
+/*   operations_single.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: stefan <stefan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/27 11:41:33 by spenev            #+#    #+#             */
-/*   Updated: 2024/06/29 00:32:55 by stefan           ###   ########.fr       */
+/*   Updated: 2024/07/25 11:43:34 by stefan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 //sa, sb
-void	swap_stack(a_list **stack, char stk_name)
+void	swap_stack(t_lst **stack, char stk_name)
 {
-	a_list	*tmp;
+	t_lst	*tmp;
 
 	if ((*stack) != NULL && (*stack)->next != NULL)
 	{
@@ -31,10 +31,10 @@ void	swap_stack(a_list **stack, char stk_name)
 }
 
 //ra, rb
-void	rotate_stack(a_list **stack, char stk_name)
+void	rotate_stack(t_lst **stack, char stk_name)
 {
-	a_list	*tmp;
-	a_list	*new_head;
+	t_lst	*tmp;
+	t_lst	*new_head;
 
 	if ((*stack) != NULL && (*stack)->next != NULL)
 	{
@@ -53,10 +53,10 @@ void	rotate_stack(a_list **stack, char stk_name)
 }
 
 //rra, rrb
-void	reverse_rotate_stack(a_list **stack, char stk_name)
+void	reverse_rotate_stack(t_lst **stack, char stk_name)
 {
-	a_list	*tmp;
-	a_list	*current;
+	t_lst	*tmp;
+	t_lst	*current;
 
 	if ((*stack) != NULL && (*stack)->next != NULL)
 	{
@@ -78,15 +78,15 @@ void	reverse_rotate_stack(a_list **stack, char stk_name)
 }
 
 //pa, pb
-void	push(a_list **to, a_list **from, char stk_name)
+void	push(t_lst **to, t_lst **from, char stk_name)
 {
-	a_list	*tmp;
+	t_lst	*tmp;
 
 	if ((*from) != NULL)
 	{
 		tmp = *from;
 		*from = (*from)->next;
-		ft_lstadd_frontt(to, tmp);
+		ft_listadd_front(to, tmp);
 	}
 	if (stk_name == 'a')
 		ft_putendl_fd("pa", 1);
