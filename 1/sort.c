@@ -6,7 +6,7 @@
 /*   By: stefan <stefan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/27 11:51:58 by spenev            #+#    #+#             */
-/*   Updated: 2024/07/25 17:48:27 by stefan           ###   ########.fr       */
+/*   Updated: 2024/07/25 22:57:20 by stefan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ void	lets_sort_any_stk(t_lst **stack, char stk_name)
 	half_size = ft_listsize(*stack) / 2;
 	if (max_index > half_size)
 	{
-		while (is_stack_sorted(*stack) != 0)
+		while (!is_stack_sorted(*stack))
 			reverse_rotate_stack(stack, stk_name);
 	}
 	else
@@ -107,10 +107,7 @@ void	initial_sort(t_lst **a_stk, t_lst **b_stk)
 		exit (EXIT_SUCCESS);
 	lst_len = ft_listsize(*a_stk);
 	med_len = lst_len / 2;
-	// med_value = ((ft_lstfindmax_val(*a_stk) + \
-	// 				ft_lstfindmin_val(*a_stk))) / 2;
 	med_value = get_median_value(*a_stk, lst_len);
-	printf("%d\n", med_value);
 	while (lst_len > 3)
 	{
 		if (med_value < (*a_stk)->value && lst_len > med_len && med_len > 100)
