@@ -1,5 +1,14 @@
 #include "push_swap.h"
 
+void free_list(t_lst *head) {
+    t_lst *temp;
+    while (head != NULL) {
+        temp = head;
+        head = head->next;
+        free(temp);
+    }
+}
+
 void	init_stack(t_lst **stack_a, int argc, char *argv[])
 {
 	int num;
@@ -25,12 +34,18 @@ void push_swap(int argc, char *argv[])
     if (argc == 4)
     {
         mini_sort(&stack_a);
+		free_list(stack_a);
         exit(EXIT_SUCCESS);
     }
     if (is_stack_sorted(stack_a))
-		exit(EXIT_SUCCESS);	
+	{
+		free_list(stack_a);
+		exit(EXIT_SUCCESS);
+	}
 	initial_sort(&stack_a, &stack_b);
-
+	free_list(stack_a);
+	free_list(stack_b);
+	
 	// while(stack_a)
 	// {
 	// 	printf("%d\n", stack_a->value);

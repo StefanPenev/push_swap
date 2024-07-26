@@ -6,7 +6,7 @@
 /*   By: stefan <stefan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/27 11:51:58 by spenev            #+#    #+#             */
-/*   Updated: 2024/07/26 00:41:34 by stefan           ###   ########.fr       */
+/*   Updated: 2024/07/26 12:33:17 by stefan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -136,8 +136,6 @@ void	initial_sort(t_lst **a_stk, t_lst **b_stk)
 		exit (EXIT_SUCCESS);
 	lst_len = ft_listsize(*a_stk);
 	med_len = lst_len / 2;
-	// med_value = ((ft_lstfindmax_val(*a_stk) + \
-	// 				ft_lstfindmin_val(*a_stk))) / 2;
 	med_value = get_median_value(*a_stk, lst_len);
 	while (lst_len > 3)
 	{
