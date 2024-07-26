@@ -6,7 +6,7 @@
 /*   By: stefan <stefan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/26 15:16:10 by stefan            #+#    #+#             */
-/*   Updated: 2024/07/26 15:52:50 by stefan           ###   ########.fr       */
+/*   Updated: 2024/07/26 23:39:01 by stefan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,7 @@ static void	bubble_sort(int arr[], int n)
 				arr[j] = arr[j + 1];
 				arr[j + 1] = temp;
 			}
+			j++;
 		}
 		i++;
 	}
