@@ -30,4 +30,10 @@ void push_swap(int argc, char *argv[])
     if (is_stack_sorted(stack_a))
 		exit(EXIT_SUCCESS);	
 	initial_sort(&stack_a, &stack_b);
+
+	// while(stack_a)
+	// {
+	// 	printf("%d\n", stack_a->value);
+	// 	stack_a = stack_a->next;
+	// }
 }
