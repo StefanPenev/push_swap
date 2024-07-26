@@ -6,7 +6,7 @@
 /*   By: stefan <stefan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/27 11:39:11 by spenev            #+#    #+#             */
-/*   Updated: 2024/07/26 15:15:25 by stefan           ###   ########.fr       */
+/*   Updated: 2024/07/26 15:59:13 by stefan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ int	is_number(const char *str)
 {
 	if (*str == '+' || *str == '-')
 		str++;
-
 	while (*str != '\0')
 	{
 		if (!ft_isdigit((int)*str))

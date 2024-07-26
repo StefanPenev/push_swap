@@ -6,7 +6,7 @@
 /*   By: stefan <stefan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/27 11:59:05 by spenev            #+#    #+#             */
-/*   Updated: 2024/07/26 15:09:18 by stefan           ###   ########.fr       */
+/*   Updated: 2024/07/26 16:01:24 by stefan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,8 @@ void	initial_sort(t_lst **a_stk, t_lst **b_stk);
 int		get_median_value(t_lst *stack_a, int len);
 
 // find
-void	find_best_action(t_lst **a_stk, t_lst **b_stk, t_actions *min_quant_actions);
+void	find_best_action(t_lst **a_stk, t_lst **b_stk,
+			t_actions *min_quant_actions);
 
 // modes
 void	rr_mode(t_lst **a_stk, t_lst **b_stk, t_actions min_quan_act);
@@ -86,22 +87,14 @@ void	rrr_mode(t_lst **a_stk, t_lst **b_stk, t_actions min_quan_act);
 void	ra_and_rrb_mode(t_lst **a_stk, t_lst **b_stk, t_actions min_quan_act);
 void	rb_and_rra_mode(t_lst **a_stk, t_lst **b_stk, t_actions min_quan_act);
 
-void free_hash_set(t_hash_set *set);
-int	is_number(const char *str);
+void	free_hash_set(t_hash_set *set);
+int		is_number(const char *str);
 int		validate_arguments(int argc, char *argv[]);
 long	ft_atol(const char *str);
 
 void	push_swap(int argc, char *argv[]);
 int		is_stack_sorted(t_lst *stack);
 
-
-int	get_max_value_index(t_lst *lst);
-
-//void sort_stack(t_lst **stack_a, t_lst **stack_b);
-//void quick_sort(t_lst **a, t_lst **b);
-//void merge_sort(t_lst **a, t_lst **b);
-//void insertion_sort(t_lst **a, t_lst **b);
-//void bucket_sort(t_lst **a, t_lst **b);
-//void radix_sort(t_lst **a, t_lst **b);
+int		get_max_value_index(t_lst *lst);
 
 #endif

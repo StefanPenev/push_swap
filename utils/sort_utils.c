@@ -6,7 +6,7 @@
 /*   By: stefan <stefan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/26 15:16:10 by stefan            #+#    #+#             */
-/*   Updated: 2024/07/26 15:29:20 by stefan           ###   ########.fr       */
+/*   Updated: 2024/07/26 15:52:50 by stefan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,24 +55,34 @@ static void	bubble_sort(int arr[], int n)
 	int	j;
 	int	temp;
 
-    for (i = 0; i < n - 1; i++) {
-        for (j = 0; j < n - i - 1; j++) {
-            if (arr[j] > arr[j + 1]) {
-                temp = arr[j];
-                arr[j] = arr[j + 1];
-                arr[j + 1] = temp;
-            }
-        }
-    }
+	i = 0;
+	j = 0;
+	temp = 0;
+	while (i < n - 1)
+	{
+		j = 0;
+		while (j < n - i - 1)
+		{
+			if (arr[j] > arr[j + 1])
+			{
+				temp = arr[j];
+				arr[j] = arr[j + 1];
+				arr[j + 1] = temp;
+			}
+		}
+		i++;
+	}
 }
 
 int	get_median_value(t_lst *stack_a, int len)
 {
 	int		i;
 	int		median;
-	int		*arr = (int *)malloc(sizeof(int) * len);
-    t_lst	*current = stack_a;
+	int		*arr;
+	t_lst	*current;
 
+	arr = (int *)malloc(sizeof(int) * len);
+	current = stack_a;
 	i = 0;
 	while (i < len)
 	{
