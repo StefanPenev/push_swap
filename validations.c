@@ -6,13 +6,14 @@
 /*   By: stefan <stefan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/27 11:54:37 by spenev            #+#    #+#             */
-/*   Updated: 2024/07/25 14:16:50 by stefan           ###   ########.fr       */
+/*   Updated: 2024/07/27 00:44:19 by stefan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	init_hash_set(t_hash_set *set, int size)
+//Initializes a hash set with a specified size.
+static	void	init_hash_set(t_hash_set *set, int size)
 {
 	int	i;
 
@@ -26,12 +27,14 @@ void	init_hash_set(t_hash_set *set, int size)
 	}
 }
 
-int	hash(int key, int size)
+//Calculates the hash value for a given key based on the table size.
+static	int	hash(int key, int size)
 {
 	return (key % size);
 }
 
-int	insert(t_hash_set *set, int key)
+//Inserts a new key into the hash set if it is not already present.
+static	int	insert(t_hash_set *set, int key)
 {
 	int		index;
 	t_node	*current;
@@ -52,6 +55,7 @@ int	insert(t_hash_set *set, int key)
 	return (1);
 }
 
+//Deallocates the memory used by the hash set.
 void	free_hash_set(t_hash_set *set)
 {
 	t_node	*current;
@@ -73,6 +77,7 @@ void	free_hash_set(t_hash_set *set)
 	free(set->table);
 }
 
+//Validates the command line arguments.
 int	validate_arguments(int argc, char *argv[])
 {
 	t_hash_set	set;

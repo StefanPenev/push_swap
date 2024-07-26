@@ -6,13 +6,14 @@
 /*   By: stefan <stefan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/26 14:59:47 by stefan            #+#    #+#             */
-/*   Updated: 2024/07/26 15:06:05 by stefan           ###   ########.fr       */
+/*   Updated: 2024/07/27 00:05:40 by stefan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	init_stack(t_lst **stack_a, int argc, char *argv[])
+//Initialize the stack.
+static	void	init_stack(t_lst **stack_a, int argc, char *argv[])
 {
 	int	num;
 	int	i;

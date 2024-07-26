@@ -6,7 +6,7 @@
 /*   By: stefan <stefan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/27 11:51:58 by spenev            #+#    #+#             */
-/*   Updated: 2024/07/26 15:11:27 by stefan           ###   ########.fr       */
+/*   Updated: 2024/07/27 00:46:33 by stefan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,35 +31,14 @@ void	mini_sort(t_lst **stack)
 	}
 }
 
-int	ft_lstfind_ind_of_max_value(t_lst *lst)
-{
-	int	max_value;
-	int	max_ind;
-	int	it;
-
-	max_ind = 0;
-	max_value = lst->value;
-	lst = lst->next;
-	it = 1;
-	while (lst)
-	{
-		if (lst->value > max_value)
-		{
-			max_ind = it;
-			max_value = lst->value;
-		}
-		lst = lst->next;
-		it++;
-	}
-	return (max_ind);
-}
-
-void	lets_sort_any_stk(t_lst **stack, char stk_name)
+/* Sort a stack by rotating or reverse rotating 
+based on the maximum value's position */
+static	void	sort_stack(t_lst **stack, char stk_name)
 {
 	int	max_index;
 	int	half_size;
 
-	max_index = ft_lstfind_ind_of_max_value(*stack);
+	max_index = get_max_value_index(*stack);
 	half_size = ft_listsize(*stack) / 2;
 	if (max_index > half_size)
 	{
@@ -73,7 +52,8 @@ void	lets_sort_any_stk(t_lst **stack, char stk_name)
 	}
 }
 
-void	sort(t_lst **a_stk, t_lst **b_stk)
+//Sort the stack using the actions with the minimum total actions
+static	void	sort(t_lst **a_stk, t_lst **b_stk)
 {
 	t_actions	*min_actions;
 
@@ -94,9 +74,10 @@ void	sort(t_lst **a_stk, t_lst **b_stk)
 		push(a_stk, b_stk, 'a');
 	}
 	free(min_actions);
-	lets_sort_any_stk(a_stk, 'a');
+	sort_stack(a_stk, 'a');
 }
 
+//Perform the initial sorting of stack
 void	initial_sort(t_lst **a_stk, t_lst **b_stk)
 {
 	int		lst_len;

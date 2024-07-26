@@ -6,30 +6,33 @@
 /*   By: stefan <stefan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/26 15:24:44 by stefan            #+#    #+#             */
-/*   Updated: 2024/07/26 15:26:04 by stefan           ###   ########.fr       */
+/*   Updated: 2024/07/27 00:34:46 by stefan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_find_max(int a, int b)
+//Return the larger of two values
+static int	find_max_value(int a, int b)
 {
 	if (a > b)
 		return (a);
 	return (b);
 }
 
-void	overwriting_values(t_actions *min_quan_act, t_actions *cur_act)
+//Overwrite the values of one t_actions with another
+static	void	overwritte_actions(t_actions *min_actions, t_actions *cur_act)
 {
-	min_quan_act->ra = cur_act->ra;
-	min_quan_act->rb = cur_act->rb;
-	min_quan_act->rra = cur_act->rra;
-	min_quan_act->rrb = cur_act->rrb;
-	min_quan_act->total = cur_act->total;
-	min_quan_act->mode = cur_act->mode;
+	min_actions->ra = cur_act->ra;
+	min_actions->rb = cur_act->rb;
+	min_actions->rra = cur_act->rra;
+	min_actions->rrb = cur_act->rrb;
+	min_actions->total = cur_act->total;
+	min_actions->mode = cur_act->mode;
 }
 
-int	find_best_place_in_a(t_lst *a_stk, t_lst *b_stk)
+//Find the best place in stack a to insert the current element from stack b
+static	int	find_best_place_in_a(t_lst *a_stk, t_lst *b_stk)
 {
 	int	best_value;
 	int	best_ind;
@@ -54,17 +57,18 @@ int	find_best_place_in_a(t_lst *a_stk, t_lst *b_stk)
 	return (best_ind);
 }
 
-void	find_best_mode(t_actions *cur_act)
+//Find the best mode of operation for the current action
+static	void	find_best_mode(t_actions *cur_act)
 {
 	cur_act->total = INT_MAX;
-	if (cur_act->total > ft_find_max(cur_act->ra, cur_act->rb))
+	if (cur_act->total > find_max_value(cur_act->ra, cur_act->rb))
 	{
-		cur_act->total = ft_find_max(cur_act->ra, cur_act->rb);
+		cur_act->total = find_max_value(cur_act->ra, cur_act->rb);
 		cur_act->mode = 1;
 	}
-	if (cur_act->total > ft_find_max(cur_act->rra, cur_act->rrb))
+	if (cur_act->total > find_max_value(cur_act->rra, cur_act->rrb))
 	{
-		cur_act->total = ft_find_max(cur_act->rra, cur_act->rrb);
+		cur_act->total = find_max_value(cur_act->rra, cur_act->rrb);
 		cur_act->mode = 2;
 	}
 	if (cur_act->total > cur_act->ra + cur_act->rrb)
@@ -79,6 +83,7 @@ void	find_best_mode(t_actions *cur_act)
 	}
 }
 
+//Find the best action to move elements from stack b to stack a
 void	find_best_action(t_lst **a_stk, t_lst **b_stk,
 	t_actions *min_quant_actions)
 {
@@ -97,7 +102,7 @@ void	find_best_action(t_lst **a_stk, t_lst **b_stk,
 		cur_act.rrb = ft_listsize(*b_stk) - cur_act.rb;
 		find_best_mode(&cur_act);
 		if (cur_act.total < min_quant_actions->total)
-			overwriting_values(min_quant_actions, &cur_act);
+			overwritte_actions(min_quant_actions, &cur_act);
 		index++;
 		tmp = tmp->next;
 	}

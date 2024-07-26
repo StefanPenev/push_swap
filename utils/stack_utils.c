@@ -6,13 +6,13 @@
 /*   By: stefan <stefan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/26 15:02:12 by stefan            #+#    #+#             */
-/*   Updated: 2024/07/26 15:02:14 by stefan           ###   ########.fr       */
+/*   Updated: 2024/07/27 00:04:25 by stefan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-//Adds a node at the beginning of the stack
+//Adds a node at the beginning of the stack.
 void	ft_listadd_front(t_lst **lst, t_lst *new)
 {
 	if (!lst || !new)
@@ -21,7 +21,7 @@ void	ft_listadd_front(t_lst **lst, t_lst *new)
 	*lst = new;
 }
 
-//Adds a node at the end of the stack
+//Adds a node at the end of the stack.
 void	ft_listadd_back(t_lst **lst, t_lst *new)
 {
 	t_lst	*temp;
@@ -40,7 +40,7 @@ void	ft_listadd_back(t_lst **lst, t_lst *new)
 	}
 }
 
-//Create new node
+//Create new node.
 t_lst	*ft_lst_new(int content)
 {
 	t_lst	*list;
@@ -53,7 +53,7 @@ t_lst	*ft_lst_new(int content)
 	return (list);
 }
 
-//Get the size of the stack
+//Get the size of the stack.
 int	ft_listsize(t_lst *lst)
 {
 	size_t	i;
@@ -67,7 +67,7 @@ int	ft_listsize(t_lst *lst)
 	return (i);
 }
 
-//Free stack
+//Free stack.
 void	free_list(t_lst *head)
 {
 	t_lst	*temp;

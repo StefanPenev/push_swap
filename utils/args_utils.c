@@ -6,12 +6,13 @@
 /*   By: stefan <stefan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/27 11:39:11 by spenev            #+#    #+#             */
-/*   Updated: 2024/07/26 15:59:13 by stefan           ###   ########.fr       */
+/*   Updated: 2024/07/26 23:59:10 by stefan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
+//Check if the provided argument is a number
 int	is_number(const char *str)
 {
 	if (*str == '+' || *str == '-')
@@ -27,11 +28,13 @@ int	is_number(const char *str)
 	return (1);
 }
 
+//Check if the provided character is a whitespace character
 int	ft_isspace(int c)
 {
-	return ((c >= 9 && c <= 13) || c == ' ');
+	return ((c >= 9 && c <= 13) || c == 32);
 }
 
+//Convert an ASCII string to a long integer
 long	ft_atol(const char *str)
 {
 	long int	nb;
