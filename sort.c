@@ -6,7 +6,7 @@
 /*   By: stefan <stefan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/27 11:51:58 by spenev            #+#    #+#             */
-/*   Updated: 2024/07/26 12:33:17 by stefan           ###   ########.fr       */
+/*   Updated: 2024/07/26 15:11:27 by stefan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,35 +96,6 @@ void	sort(t_lst **a_stk, t_lst **b_stk)
 	free(min_actions);
 	lets_sort_any_stk(a_stk, 'a');
 }
-
-
-// int	ft_lstfindmin_val(t_lst *lst)
-// {
-// 	int	min_value;
-
-// 	min_value = lst->value;
-// 	while (lst)
-// 	{
-// 		if (min_value > lst->value)
-// 			min_value = lst->value;
-// 		lst = lst->next;
-// 	}
-// 	return (min_value);
-// }
-
-// int	ft_lstfindmax_val(t_lst *lst)
-// {
-// 	int	max_value;
-
-// 	max_value = lst->value;
-// 	while (lst)
-// 	{
-// 		if (max_value < lst->value)
-// 			max_value = lst->value;
-// 		lst = lst->next;
-// 	}
-// 	return (max_value);
-// }
 
 void	initial_sort(t_lst **a_stk, t_lst **b_stk)
 {

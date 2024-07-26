@@ -6,7 +6,7 @@
 /*   By: stefan <stefan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/27 11:59:05 by spenev            #+#    #+#             */
-/*   Updated: 2024/07/25 20:51:13 by stefan           ###   ########.fr       */
+/*   Updated: 2024/07/26 15:09:18 by stefan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,12 +30,12 @@ typedef struct s_lst
 
 typedef struct s_actions
 {
-	int ra;
-	int rra;
-	int rb;
-	int rrb;
-	int total;
-	int mode;	
+	int	ra;
+	int	rra;
+	int	rb;
+	int	rrb;
+	int	total;
+	int	mode;	
 }		t_actions;
 
 typedef struct s_node
@@ -60,13 +60,14 @@ void	rotate_both(t_lst **a_stk, t_lst **b_stk);
 void	reverse_rotate_both(t_lst **a_stk, t_lst **b_stk);
 
 // stack utils
+void	free_list(t_lst *head);
 int		ft_listsize(t_lst *lst);
 t_lst	*ft_lst_new(int content);
 void	ft_listadd_back(t_lst **lst, t_lst *new);
 void	ft_listadd_front(t_lst **lst, t_lst *new);
 
 // error
-void	ft_error();
+void	ft_error(void);
 void	ft_error_set(t_hash_set	set);
 
 // sort

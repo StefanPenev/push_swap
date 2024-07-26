@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   find.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: stefan <stefan@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/07/26 15:24:44 by stefan            #+#    #+#             */
+/*   Updated: 2024/07/26 15:26:04 by stefan           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 int	ft_find_max(int a, int b)
@@ -67,10 +79,11 @@ void	find_best_mode(t_actions *cur_act)
 	}
 }
 
-void	find_best_action(t_lst **a_stk, t_lst **b_stk, t_actions *min_quant_actions)
+void	find_best_action(t_lst **a_stk, t_lst **b_stk,
+	t_actions *min_quant_actions)
 {
-	int		index;
-	t_lst	*tmp;
+	int			index;
+	t_lst		*tmp;
 	t_actions	cur_act;
 
 	index = 0;
