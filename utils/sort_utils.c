@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: stefan <stefan@student.42.fr>              +#+  +:+       +#+        */
+/*   By: spenev <spenev@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/26 15:16:10 by stefan            #+#    #+#             */
-/*   Updated: 2024/07/26 23:53:58 by stefan           ###   ########.fr       */
+/*   Created: 2024/07/27 11:09:00 by spenev            #+#    #+#             */
+/*   Updated: 2024/07/27 11:10:03 by spenev           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,13 +75,11 @@ static void	bubble_sort(int arr[], int n)
 	}
 }
 
- /* Calculates the median value of the elements in the stack.
- * Steps:
+/*Calculates the median value of the elements in the stack.
  * 1. Allocate an array to hold the elements from the stack.
  * 2. Copy the elements from the stack to the array.
  * 3. Sort the array using the bubble sort algorithm.
- * 4. Determine the median value from the sorted array.
- */
+ * 4. Determine the median value from the sorted array.*/
 int	get_median_value(t_lst *stack_a, int len)
 {
 	int		i;
