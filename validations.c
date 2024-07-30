@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   validations.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: spenev <spenev@student.42.fr>              +#+  +:+       +#+        */
+/*   By: stefan <stefan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/27 11:54:37 by spenev            #+#    #+#             */
-/*   Updated: 2024/07/27 11:15:48 by spenev           ###   ########.fr       */
+/*   Updated: 2024/07/30 11:24:30 by stefan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ static	void	init_hash_set(t_hash_set *set, int size)
 //Calculates the hash value for a given key based on the table size.
 static	int	hash(int key, int size)
 {
-	return (key % size);
+	return ((key % size) + size) % size;
 }
 
 //Inserts a new key into the hash set if it is not already present.
@@ -78,23 +78,21 @@ void	free_hash_set(t_hash_set *set)
 }
 
 //Validates the command line arguments.
-int	validate_arguments(int argc, char *argv[])
+int	validate_arguments(int size, char **values)
 {
 	t_hash_set	set;
-	int			size;
 	int			i;
 	long		num;
-
-	if (argc <= 1)
+	
+	if (size<= 0)
 		ft_error();
-	size = argc - 1;
 	init_hash_set(&set, size);
-	i = 1;
-	while (i < argc)
+	i = 0;
+	while (values[i])
 	{
-		if (!is_number(argv[i]))
+		if (!is_number(values[i]))
 			ft_error_set(set);
-		num = ft_atol(argv[i]);
+		num = ft_atol(values[i]);
 		if (num < INT_MIN || num > INT_MAX)
 			ft_error_set(set);
 		if (!insert(&set, num))

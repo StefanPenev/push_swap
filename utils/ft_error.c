@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_error.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: spenev <spenev@student.42.fr>              +#+  +:+       +#+        */
+/*   By: stefan <stefan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/27 11:08:26 by spenev            #+#    #+#             */
-/*   Updated: 2024/07/27 11:08:37 by spenev           ###   ########.fr       */
+/*   Created: 2024/07/26 15:15:36 by stefan            #+#    #+#             */
+/*   Updated: 2024/07/30 00:21:20 by stefan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 Free the allocated memory for the hash set. */
 void	ft_error_set(t_hash_set set)
 {
-	ft_putstr_fd("Error\n", 1);
+	ft_putstr_fd("Error\n", 2);
 	free_hash_set(&set);
 	exit(EXIT_FAILURE);
 }
@@ -24,6 +24,6 @@ void	ft_error_set(t_hash_set set)
 //Handle general validation errors.
 void	ft_error(void)
 {
-	ft_putstr_fd("Error\n", 1);
+	ft_putstr_fd("Error\n", 2);
 	exit(EXIT_FAILURE);
 }

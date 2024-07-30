@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   args_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: spenev <spenev@student.42.fr>              +#+  +:+       +#+        */
+/*   By: stefan <stefan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/27 11:39:11 by spenev            #+#    #+#             */
-/*   Updated: 2024/07/27 11:08:04 by spenev           ###   ########.fr       */
+/*   Updated: 2024/07/30 11:42:54 by stefan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,8 @@ long	ft_atol(const char *str)
 		str++;
 	if (*str == '+' || *str == '-')
 	{
+		if (*(str + 1) == '\0')
+			ft_error();
 		if (*str == '-')
 			sign = (-1);
 		str++;
