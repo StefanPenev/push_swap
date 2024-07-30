@@ -6,7 +6,7 @@
 /*   By: stefan <stefan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/27 11:51:58 by spenev            #+#    #+#             */
-/*   Updated: 2024/07/30 09:48:07 by stefan           ###   ########.fr       */
+/*   Updated: 2024/07/30 14:35:49 by stefan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ void	initial_sort(t_lst **a_stk, t_lst **b_stk)
 	int		lst_len;
 	int		med_value;
 	int		med_len;
-	
+
 	if (is_stack_sorted(*a_stk))
 		exit (EXIT_SUCCESS);
 	lst_len = ft_listsize(*a_stk);

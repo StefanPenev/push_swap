@@ -6,7 +6,7 @@
 /*   By: stefan <stefan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/27 11:54:37 by spenev            #+#    #+#             */
-/*   Updated: 2024/07/30 11:24:30 by stefan           ###   ########.fr       */
+/*   Updated: 2024/07/30 14:39:53 by stefan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ static	void	init_hash_set(t_hash_set *set, int size)
 //Calculates the hash value for a given key based on the table size.
 static	int	hash(int key, int size)
 {
-	return ((key % size) + size) % size;
+	return (((key % size) + size) % size);
 }
 
 //Inserts a new key into the hash set if it is not already present.
@@ -83,8 +83,8 @@ int	validate_arguments(int size, char **values)
 	t_hash_set	set;
 	int			i;
 	long		num;
-	
-	if (size<= 0)
+
+	if (size <= 0)
 		ft_error();
 	init_hash_set(&set, size);
 	i = 0;

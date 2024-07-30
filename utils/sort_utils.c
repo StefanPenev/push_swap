@@ -6,7 +6,7 @@
 /*   By: stefan <stefan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/26 15:16:10 by stefan            #+#    #+#             */
-/*   Updated: 2024/07/26 23:53:58 by stefan           ###   ########.fr       */
+/*   Updated: 2024/07/30 14:35:06 by stefan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ static void	bubble_sort(int arr[], int n)
 	}
 }
 
- /* Calculates the median value of the elements in the stack.
+/* Calculates the median value of the elements in the stack.
  * Steps:
  * 1. Allocate an array to hold the elements from the stack.
  * 2. Copy the elements from the stack to the array.
