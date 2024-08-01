@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: stefan <stefan@student.42.fr>              +#+  +:+       +#+        */
+/*   By: spenev <spenev@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/27 11:59:05 by spenev            #+#    #+#             */
-/*   Updated: 2024/07/29 23:53:32 by stefan           ###   ########.fr       */
+/*   Updated: 2024/08/01 11:00:04 by spenev           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,9 @@ int		ft_listsize(t_lst *lst);
 t_lst	*ft_lst_new(int content);
 void	ft_listadd_back(t_lst **lst, t_lst *new);
 void	ft_listadd_front(t_lst **lst, t_lst *new);
+
+// args utils
+void	ft_free(char **values);
 
 // error
 void	ft_error(void);

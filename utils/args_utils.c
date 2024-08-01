@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   args_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: stefan <stefan@student.42.fr>              +#+  +:+       +#+        */
+/*   By: spenev <spenev@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/27 11:39:11 by spenev            #+#    #+#             */
-/*   Updated: 2024/07/30 11:42:54 by stefan           ###   ########.fr       */
+/*   Updated: 2024/08/01 10:59:09 by spenev           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,4 +58,20 @@ long	ft_atol(const char *str)
 		str++;
 	}
 	return (sign * nb);
+}
+
+//Free
+void	ft_free(char **values)
+{
+	size_t	i;
+
+	i = 0;
+	if (values == NULL)
+		return ;
+	while (values[i] != NULL)
+	{
+		free(values[i]);
+		i++;
+	}
+	free(values);
 }
