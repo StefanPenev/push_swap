@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: spenev <spenev@student.42.fr>              +#+  +:+       +#+        */
+/*   By: stefan <stefan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/27 11:59:05 by spenev            #+#    #+#             */
-/*   Updated: 2024/08/01 11:00:04 by spenev           ###   ########.fr       */
+/*   Updated: 2024/08/08 23:50:49 by stefan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ void	ft_free(char **values);
 
 // error
 void	ft_error(void);
-void	ft_error_set(t_hash_set	set);
+void	ft_error_set(t_hash_set	set, char **values);
 
 // sort
 void	mini_sort(t_lst **stack);

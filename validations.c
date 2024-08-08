@@ -6,7 +6,7 @@
 /*   By: stefan <stefan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/27 11:54:37 by spenev            #+#    #+#             */
-/*   Updated: 2024/07/30 14:39:53 by stefan           ###   ########.fr       */
+/*   Updated: 2024/08/08 23:49:27 by stefan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,12 +91,12 @@ int	validate_arguments(int size, char **values)
 	while (values[i])
 	{
 		if (!is_number(values[i]))
-			ft_error_set(set);
+			ft_error_set(set, values);
 		num = ft_atol(values[i]);
 		if (num < INT_MIN || num > INT_MAX)
-			ft_error_set(set);
+			ft_error_set(set, values);
 		if (!insert(&set, num))
-			ft_error_set(set);
+			ft_error_set(set, values);
 		i++;
 	}
 	free_hash_set(&set);

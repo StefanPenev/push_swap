@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   args_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: spenev <spenev@student.42.fr>              +#+  +:+       +#+        */
+/*   By: stefan <stefan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/27 11:39:11 by spenev            #+#    #+#             */
-/*   Updated: 2024/08/01 10:59:09 by spenev           ###   ########.fr       */
+/*   Updated: 2024/08/08 22:15:11 by stefan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,12 +63,10 @@ long	ft_atol(const char *str)
 //Free
 void	ft_free(char **values)
 {
-	size_t	i;
+	int	i;
 
 	i = 0;
-	if (values == NULL)
-		return ;
-	while (values[i] != NULL)
+	while (values[i])
 	{
 		free(values[i]);
 		i++;

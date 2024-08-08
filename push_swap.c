@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: spenev <spenev@student.42.fr>              +#+  +:+       +#+        */
+/*   By: stefan <stefan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/26 14:59:47 by stefan            #+#    #+#             */
-/*   Updated: 2024/08/01 11:08:10 by spenev           ###   ########.fr       */
+/*   Updated: 2024/08/08 23:53:21 by stefan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ static	void	init_stack(t_lst **stack_a, int argc, char *argv[])
 		ft_listadd_back(stack_a, ft_lst_new(num));
 		i++;
 	}
-	ft_free(argv);
 }
 
 int	count_nums(char **values)
@@ -80,6 +79,7 @@ void	push_swap(int argc, char *argv[])
 	stack_b = NULL;
 	process_arguments(argc, argv, &count, &values);
 	init_stack(&stack_a, count, values);
+	ft_free(values);
 	check_and_sort(argc, count, &stack_a, &stack_b);
 	free_list(stack_a);
 	free_list(stack_b);
