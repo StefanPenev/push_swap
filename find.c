@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   find.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: stefan <stefan@student.42.fr>              +#+  +:+       +#+        */
+/*   By: spenev <spenev@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/26 15:24:44 by stefan            #+#    #+#             */
-/*   Updated: 2024/07/27 00:34:46 by stefan           ###   ########.fr       */
+/*   Updated: 2024/08/09 13:30:39 by spenev           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,11 +36,11 @@ static	int	find_best_place_in_a(t_lst *a_stk, t_lst *b_stk)
 {
 	int	best_value;
 	int	best_ind;
-	int	it;
+	int	i;
 
 	best_value = a_stk->value;
 	best_ind = 0;
-	it = 1;
+	i = 1;
 	a_stk = a_stk->next;
 	while (a_stk)
 	{
@@ -48,11 +48,11 @@ static	int	find_best_place_in_a(t_lst *a_stk, t_lst *b_stk)
 		|| (a_stk->value > b_stk->value && (best_value < b_stk->value \
 		|| best_value > a_stk->value)))
 		{
-			best_ind = it;
+			best_ind = i;
 			best_value = a_stk->value;
 		}
 		a_stk = a_stk->next;
-		it++;
+		i++;
 	}
 	return (best_ind);
 }
@@ -85,25 +85,25 @@ static	void	find_best_mode(t_actions *cur_act)
 
 //Find the best action to move elements from stack b to stack a
 void	find_best_action(t_lst **a_stk, t_lst **b_stk,
-	t_actions *min_quant_actions)
+	t_actions *min_actions)
 {
-	int			index;
+	int			i;
 	t_lst		*tmp;
 	t_actions	cur_act;
 
-	index = 0;
+	i = 0;
 	tmp = *b_stk;
-	min_quant_actions->total = INT_MAX;
+	min_actions->total = INT_MAX;
 	while (tmp)
 	{
 		cur_act.ra = find_best_place_in_a(*a_stk, tmp);
-		cur_act.rb = index;
+		cur_act.rb = i;
 		cur_act.rra = ft_listsize(*a_stk) - cur_act.ra;
 		cur_act.rrb = ft_listsize(*b_stk) - cur_act.rb;
 		find_best_mode(&cur_act);
-		if (cur_act.total < min_quant_actions->total)
-			overwritte_actions(min_quant_actions, &cur_act);
-		index++;
+		if (cur_act.total < min_actions->total)
+			overwritte_actions(min_actions, &cur_act);
+		i++;
 		tmp = tmp->next;
 	}
 }
