@@ -6,7 +6,7 @@
 /*   By: stefan <stefan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/26 15:15:36 by stefan            #+#    #+#             */
-/*   Updated: 2024/08/08 23:50:11 by stefan           ###   ########.fr       */
+/*   Updated: 2024/08/09 08:53:58 by stefan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,9 @@ void	ft_error_set(t_hash_set set, char **values)
 }
 
 //Handle general validation errors.
-void	ft_error(void)
+void	ft_error(char **values)
 {
 	ft_putstr_fd("Error\n", 2);
+	ft_free(values);
 	exit(EXIT_FAILURE);
 }

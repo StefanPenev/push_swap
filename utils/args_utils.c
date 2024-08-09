@@ -6,7 +6,7 @@
 /*   By: stefan <stefan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/27 11:39:11 by spenev            #+#    #+#             */
-/*   Updated: 2024/08/08 22:15:11 by stefan           ###   ########.fr       */
+/*   Updated: 2024/08/09 08:55:08 by stefan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ long	ft_atol(const char *str)
 	if (*str == '+' || *str == '-')
 	{
 		if (*(str + 1) == '\0')
-			ft_error();
+			ft_putstr_fd("Error\n", 2);
 		if (*str == '-')
 			sign = (-1);
 		str++;

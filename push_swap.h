@@ -6,7 +6,7 @@
 /*   By: stefan <stefan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/27 11:59:05 by spenev            #+#    #+#             */
-/*   Updated: 2024/08/08 23:50:49 by stefan           ###   ########.fr       */
+/*   Updated: 2024/08/09 08:52:46 by stefan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ void	ft_listadd_front(t_lst **lst, t_lst *new);
 void	ft_free(char **values);
 
 // error
-void	ft_error(void);
+void	ft_error(char **values);
 void	ft_error_set(t_hash_set	set, char **values);
 
 // sort

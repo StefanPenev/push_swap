@@ -6,7 +6,7 @@
 /*   By: stefan <stefan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/27 11:54:37 by spenev            #+#    #+#             */
-/*   Updated: 2024/08/08 23:49:27 by stefan           ###   ########.fr       */
+/*   Updated: 2024/08/09 08:52:07 by stefan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ int	validate_arguments(int size, char **values)
 	long		num;
 
 	if (size <= 0)
-		ft_error();
+		ft_error(values);
 	init_hash_set(&set, size);
 	i = 0;
 	while (values[i])
